@@ -79,8 +79,6 @@ $password = ''; // пароль
 			</div>
 			<div class="col-8">
 			<?php
-				
-					require_once 'connection.php'; // подключаем скрипт
 					
 					$link = mysqli_connect($host, $user, $password, $database) 
 						or die("Ошибка " . mysqli_error($link)); 
