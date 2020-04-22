@@ -1,31 +1,84 @@
-# Подключаем модуль случайных чисел 
-import random
+def form_dict():
+    d = {}
+    iter = 0
+    for i in range(0,127):
+        d[iter] = chr(i)
+        iter = iter +1
+    return d
 
-# Заготовка для первого предложения
-first = ["Сегодня — идеальный день для новых начинаний.","Оптимальный день для того, чтобы решиться на смелый поступок!","Будьте осторожны, сегодня звёзды могут повлиять на ваше финансовое состояние.","Лучшее время для того, чтобы начать новые отношения или разобраться со старыми.","Плодотворный день для того, чтобы разобраться с накопившимися делами."]
-second = ["Но помните, что даже в этом случае нужно не забывать про","Если поедете за город, заранее подумайте про","Те, кто сегодня нацелен выполнить множество дел, должны помнить про","Если у вас упадок сил, обратите внимание на","Помните, что мысли материальны, а значит вам в течение дня нужно постоянно думать про"]
-second_add = ["отношения с друзьями и близкими.","работу и деловые вопросы, которые могут так некстати помешать планам.","себя и своё здоровье, иначе к вечеру возможен полный раздрай.","бытовые вопросы — особенно те, которые вы не доделали вчера.","отдых, чтобы не превратить себя в загнанную лошадь в конце месяца."]
-third = ["Злые языки могут говорить вам обратное, но сегодня их слушать не нужно.","Знайте, что успех благоволит только настойчивым, поэтому посвятите этот день воспитанию духа.","Даже если вы не сможете уменьшить влияние ретроградного Меркурия, то хотя бы доведите дела до конца.","Не нужно бояться одиноких встреч — сегодня то самое время, когда они значат многое.","Если встретите незнакомца на пути — проявите участие, и тогда эта встреча посулит вам приятные хлопоты."]
+def encode_val(word):
+    list_code = []
+    lent = len(word)
+    d = form_dict() 
 
-# выводим знаки зодиака
-print("1 — Овен")
-print("2 — Телец")
-print("3 — Близнецы")
-print("4 — Рак")
-print("5 — Лев")
-print("6 — Дева")
-print("7 — Весы")
-print("8 — Скорпион")
-print("9 — Стрелец")
-print("10 — Козерог")
-print("11 — Водолей")
-print("12 — Рыбы")
+    for w in range(lent):
+        for value in d:
+            if word[w] == d[value]:
+               list_code.append(value) 
+    return list_code
 
-# Спрашиваем у пользователя про его знак
-zodiac = int(input("Введите число с номером знака зодиака: "))
+def comparator(value, key):
+    len_key = len(key)
+    dic = {}
+    iter = 0
+    full = 0
 
-# Если число введено верно — выдаём гороскоп
-if 0 < zodiac < 13:
-    print (random.choice(first), random.choice(second), random.choice(second_add),               random.choice(third))
-else:
-    print ("Вы ошиблись с числом, запустите программу ещё раз")
+    for i in value:
+        dic[full] = [i,key[iter]]
+        full = full + 1
+        iter = iter +1
+        if (iter >= len_key):
+            iter = 0 
+    return dic 
+
+def full_encode(value, key):
+    dic = comparator(value, key)
+    print ('Сравните полное кодирование', dic)
+    lis = []
+    d = form_dict()
+
+    for v in dic:
+        go = (dic[v][0]+dic[v][1]) % len(d)
+        lis.append(go) 
+    return lis
+
+def decode_val(list_in):
+    list_code = []
+    lent = len(list_in)
+    d = form_dict() 
+
+    for i in range(lent):
+        for value in d:
+            if list_in[i] == value:
+               list_code.append(d[value]) 
+    return list_code
+
+def full_decode(value, key):
+    dic = comparator(value, key)
+    print ('Дешифр=', dic)
+    d = form_dict() 
+    lis =[]
+
+    for v in dic:
+        go = (dic[v][0]-dic[v][1]+len(d)) % len(d)
+        lis.append(go) 
+    return lis
+
+if __name__ == "__main__":
+    print ('ВНИМАНИЕ: программа работает только на английском языке')
+    word = input('Слово: ')
+    key = input('Ключ: ')
+
+    key_encoded = encode_val(key)
+    value_encoded = encode_val(word)
+ 
+    print ('Значение= ',value_encoded)
+    print ('Ключ= ', key_encoded)
+
+    shifre = full_encode(value_encoded, key_encoded)
+    print ('Шифр=', ''.join(decode_val(shifre)))
+
+    decoded = full_decode(shifre, key_encoded)
+    print ('Список декодирования=', decoded)
+    decode_word_list = decode_val(decoded)
+    print ('Слово=',''.join(decode_word_list))
