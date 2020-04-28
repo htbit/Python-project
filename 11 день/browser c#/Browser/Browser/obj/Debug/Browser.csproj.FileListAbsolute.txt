@@ -1,0 +1,16 @@
+C:\Users\sloum\source\repos\Browser\Browser\bin\Debug\Browser.exe.config
+C:\Users\sloum\source\repos\Browser\Browser\bin\Debug\Browser.exe
+C:\Users\sloum\source\repos\Browser\Browser\bin\Debug\Browser.pdb
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.csprojAssemblyReference.cache
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.Form1.resources
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.Properties.Resources.resources
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.csproj.GenerateResource.cache
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.csproj.CoreCompileInputs.cache
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.exe
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.pdb
+C:\Users\sloum\source\repos\Browser\Browser\bin\Debug\aa-DJ\Browser.resources.dll
+C:\Users\sloum\source\repos\Browser\Browser\bin\Debug\aa\Browser.resources.dll
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.Form1.aa-DJ.resources
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\Browser.Form1.aa.resources
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\aa-DJ\Browser.resources.dll
+C:\Users\sloum\source\repos\Browser\Browser\obj\Debug\aa\Browser.resources.dll
